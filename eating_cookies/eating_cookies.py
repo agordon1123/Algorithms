@@ -5,8 +5,14 @@ import sys
 # The cache parameter is here for if you want to implement
 # a solution that is more efficient than the naive 
 # recursive solution
-def eating_cookies(n, cache=None):
-  pass
+def eating_cookies(n):
+  if n == 0 or n == 1:
+    return 1
+  elif n < 0:
+    return 0
+  
+  return eating_cookies(n - 1) + eating_cookies(n - 2) + eating_cookies(n - 3)
+
 
 if __name__ == "__main__":
   if len(sys.argv) > 1:

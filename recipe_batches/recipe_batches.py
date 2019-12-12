@@ -3,8 +3,21 @@
 import math
 
 def recipe_batches(recipe, ingredients):
-  pass 
+  total = []
 
+  if len(ingredients) < len(recipe):
+    return 0
+
+  for i in recipe:
+    if math.floor((ingredients[i] / recipe[i])) == 0:
+      total.append(0)
+    else:
+      total.append(math.floor((ingredients[i] / recipe[i])))
+
+  if 0 in total:
+    return 0
+  else:
+    return min(total)
 
 if __name__ == '__main__':
   # Change the entries of these dictionaries to test 
